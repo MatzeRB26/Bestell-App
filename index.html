@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="./styles/fonts.css">
     <link rel="stylesheet" href="./styles/standart.css">
     <link rel="stylesheet" href="style.css">
-    <title>Hunger auf 🍔🍕🥗?</title>
+    <script src="./scripts/template.js"></script>
+    <script src="./scripts/db.js"></script>
+    <script src="./script.js" defer></script>
+    <title>Hunger auf 🍔🍕oder🥗</title>
 </head>
 <body>
     <div class="body-img">
@@ -15,8 +18,8 @@
     </div>
     <header>
         <div class="header-content">
-                <img class="logo" src="./assets/icons/Logo 02.svg" alt="Logo">
-                <img class="nav-logo" src="./assets/icons/navbar.svg" alt="Navbar">
+            <img class="logo" src="./assets/icons/Logo 02.svg" alt="Logo">
+            <img class="nav-logo" src="./assets/icons/navbar.svg" alt="Navbar">
         </div>
     </header>
         <main>
@@ -24,33 +27,52 @@
                 <img src="./assets/icons/main-icon.png" alt="bg-logo">
             </div>
             <div class="top-text">
-                <div class="bh-and-img">
-                <h1><span class="bg">Burger</span>House</h1>
-                <img src="./assets/icons/rating-icon.png" alt="rating-img">
+                <div class="bh-and-rating">
+                    <h1><span class="bg">Burger</span>House</h1>
+                    <img src="./assets/icons/rating-icon.png" alt="rating-img">
                 </div>
-                <p>The best of Burgers, Pizza and Greens, all in one great place.</p>
+                    <p>The best of Burgers, Pizza and Greens, all in one great place.</p>
             </div>
-            <div class="burger-headline">
-                <img src="./assets/icons/burger-icon.png" alt="burger-icon">
-                <p>Burger & Sandwiches</p>
-                <div id="box1">
 
+            <section class="menu-container">
+                <div class="burger-headline">
+                    <div class="headline-content">
+                        <img src="./assets/icons/burger-icon.png" alt="burger-icon">
+                        <h2>Burger & Sandwiches</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="pizza-headline">
-                <img src="./assets/icons/pizza-icon.png" alt="pizza-icon">
-                <p>Pizza (30cm)</p>
-                <div id="box2">
+            
+                <section id="burger-menu">
+                    <div class="burger-menu-content">
+                        <div class="burger-dishes"></div>
+                    </div>
+                </section>
 
+                <div class="pizza-headline">
+                    <div class="headline-content">
+                        <img src="./assets/icons/pizza-icon.png" alt="pizza-icon">
+                        <h2>Pizza<span>(30cm)</span></h2>
+                    </div>
                 </div>
-            </div>
-            <div class="salad-headline">
-                <img src="./assets/icons/salad-icon.png" alt="salad-icon">
-                <p>Salad</p>
-                <div id="box3">
+                <section id="pizza-menu">
+                    <div class="pizza-menu-content">
+                        <div class="pizza-dishes"></div>
+                    </div>
+                </section>
 
+                <div class="salad-headline">
+                    <div class="headline-content">
+                        <img src="./assets/icons/salad-icon.png" alt="salad-icon">
+                        <h2>Salad</h2>
+                    </div>
                 </div>
-            </div>
+                <section id="salad-menu">
+                    <div class="salad-menu-content">
+                        <div class="salad-dishes"></div>
+                    </div>
+                </section>
+            
+            </section>
         </main>
         <footer>
             <div class="footer-content">
