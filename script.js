@@ -24,3 +24,25 @@ function renderMenuThree() {
     }
 }
 renderMenuThree();
+
+// -----------------------------------------------------------------------------------
+
+function addToBasket(menu) {
+    basket.push(menu);
+    renderBasket();
+}
+
+function renderBasket() {
+    const basketRef = document.getElementById("basket-content");
+    basketRef.innerHTML = getBasketContainerTemplate();
+
+    const basketItemRef = document.getElementById("basket-item");
+    for (let index = 0; index < basket.length; index++) {
+        basketRef.innerHTML += getBasketTemplate(index);
+    }
+}
+
+// function removeFromBasket(index) {
+//     basket.splice(index, 1);
+//     renderBasket();
+// }

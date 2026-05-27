@@ -78,3 +78,5 @@ let menuListThree = [
         description: "Green salad, Cherry tomatoes, Cucumber, Baby spinach, Edamame. Radishes, Bittercress, Tofu, Peanuts",
     },
 ];
+
+let basket = [];

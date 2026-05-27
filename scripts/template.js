@@ -1,4 +1,4 @@
-function getMenuTemplate(menu){
+function getMenuTemplate(menu) {
     return `
     <div class="menu-card">
         <div class="menu-img">
@@ -13,12 +13,31 @@ function getMenuTemplate(menu){
                 </div>
             </div>
                 <div class="menu-footer">
-                        <b>${menu.price.toFixed(2).replace(".",",")}€</b>    
-                    <button class="menu-button">
+                        <b>${menu.price.toFixed(2).replace(".", ",")}€</b>    
+                    <button onclick='addToBasket(${JSON.stringify(menu)})' class="menu-button">
                         Add to basket
                     </button>
                 </div>
         </div>
     </div>
+    `;
+}
+
+// -----------------------------------------------------------------------------------------
+function getBasketTemplate(index) {
+    return `
+        <div class="dish-basket">
+        <div id="basket-item">
+        <h5>${basket[index].title}</h5>
+        <p>${basket[index].price.toFixed(2).replace(".", ",")}€</p>
+        </div>
+        </div>
+    `;
+}
+
+function getBasketContainerTemplate() {
+    return `
+    <h3>Your Basket</h3>
+    <div class="basket-item"></div>
     `;
 }
