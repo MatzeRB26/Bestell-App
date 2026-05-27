@@ -7,23 +7,17 @@ function getMenuTemplate(menu){
 
         <div class="menu-content">
             <div class="menu-header">
-                <div class="menu-title">
+                <div class="menu-title-info">
                     <h3>${menu.title}</h3>
+                    <p>${menu.description}</p>
                 </div>
-                <div class="menu-price">
-                    <p>
+            </div>
+                <div class="menu-footer">
                         <b>${menu.price.toFixed(2).replace(".",",")}€</b>    
-                    </p>
+                    <button class="menu-button">
+                        Add to basket
+                    </button>
                 </div>
-            </div>
-            <div class="menu-description">
-                <p>${menu.description}</p>
-            </div>
-            <div class="menu-footer">
-                <button class="menu-button">
-                    Add to basket
-                </button>
-            </div>
         </div>
     </div>
     `;

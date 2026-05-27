@@ -1,0 +1,33 @@
+.layout-container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.basket{
+    width: 435px;
+    height: 794px;
+    background-color: rgba(54, 53, 52, 1);
+    position: fixed;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    padding: 59px 31px 0px 0px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    right: calc((100vw - 1440px) / 2 - 16px);
+}
+
+.basket-content{
+    display: flex;
+    justify-content: center;
+    width: 340px;
+    height: 676px;
+}
+
+h3{
+    font-family: "Palanquin";
+    font-size: 32px;
+    font-weight: 700;
+    color: rgba(253, 234, 220, 1)
+}

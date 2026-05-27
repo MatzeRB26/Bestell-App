@@ -19,7 +19,7 @@ let menuList = [
     },
     {
         imgPath: "./assets/img/big-chicken-burger.jpg",
-        title: "Blg chicken burger",
+        title: "Big chicken burger",
         price: 15.90,
         description: "Chicken, Cheese, Tomatoes, Lettuce, Onion, Bell pepper",
     },
@@ -57,7 +57,7 @@ let menuListThree = [
         imgPath: "./assets/img/beef-salad.jpg",
         title: "Warm beef arugula salad",
         price: 16.90,
-        description: "Beef, Arugula, Field salad, Greek feta, Cherry tomatoes, Sun-dried Tomatoes, Balsamic-vinegar dressing ",
+        description: "Beef, Arugula, Field salad, Greek feta, Cherry tomatoes, Sun-dried Tomatoes, Balsamic-vinegar dressing",
     },
 {
         imgPath: "./assets/img/mini-salad.jpg",

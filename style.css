@@ -31,7 +31,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-
+    
     img {
         width: 200px;
         height: 200px;
@@ -39,13 +39,12 @@ header {
     }
 }
 
-
 .top-text {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    bottom: 100px;
+    bottom: 80px;
 
     .bh-and-rating {
         display: flex;
@@ -88,22 +87,33 @@ header {
 }
 
 /* --------------------------------------------------------------------------------- */
-.menu-container{
+.main-container {
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
-.headline-content{
-    display: flex;
-    gap: 30px;
-    width: 100%;
-    width: 1440px;
-    padding-left: 167px;
-}
 
-/* --------------------------------------------------------------------------------- */
-.menu-card{
+    .headline-content {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        width: 100%;
+        width: 1440px;
+        padding-left: 167px;
+
+        img {
+            margin-top: -25px;
+        }
+
+        span {
+            font-weight: 400;
+        }
+    }
+
+
+/* ------------------------------------Menu Cards-------------------------------------- */
+.menu-card {
     width: 713px;
     height: 141px;
     display: flex;
@@ -111,8 +121,8 @@ header {
     border-radius: 12px;
     padding: 10px;
     font-family: "Palanquin";
-    
-    img{
+
+    .menu-img img{
         width: 207px;
         height: 121px;
         object-fit: cover;
@@ -120,79 +130,98 @@ header {
     }
 }
 
-.menu-header{
+.menu-content{
     display: flex;
+    flex: 1;
     justify-content: space-between;
+    align-items: flex-start;
+}
+
+.menu-header {
+    display: flex;
     font-size: 24px;
-    font-weight: 600;
-}
-
-.menu-description{
-    font-size: 16px;
-    font-weight: 500;
-}
-
-.menu-footer{
-    width: 115px;
-    height: 30px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 1);
+    padding-left: 8px;
     
-    .menu-button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    color: rgba(54, 53, 52, 1);
+    h3{
+        font-weight: 600;
+    }
+    
+    p{
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.2;
     }
 }
 
+.menu-footer {
+    display: flex;
+    flex-direction: column;
+    row-gap: 35px;
+
+    b{
+        display: flex;
+        justify-content: flex-end;
+        font-weight: 600;
+        font-size: 24px;
+    }
+
+    .menu-button {
+        width: 115px;
+        height: 30px;
+        color: rgba(54, 53, 52, 1);
+        background-color: rgba(255, 255, 255, 1);
+        font-size: 16px;
+        border-radius: 20px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+}
+
 /* --------------------------------------------------------------------------------- */
-.burger-headline {
-    width: 100%;
+.menu-headline {
+    width: 100vw;
     height: 60px;
     display: flex;
     justify-content: center;
     background-color: rgba(231, 108, 31, 1);
-    
+
     img {
         width: 88px;
         height: 91px;
     }
-    
-    h2{
+
+    h2 {
         font-family: "Palanquin";
         font-size: 40px;
         font-weight: bold;
         color: white;
     }
-    
 }
 
-#burger-menu{
+#burger-menu,
+#pizza-menu,
+#salad-menu{
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    gap: 15px;
 }
 
-
-.burger-menu-content{
+.dishes-content{
     display: flex;
-    justify-content: center;
+    width: 100%;
+    max-width: 1440px;
     padding: 30px 0px 50px 119px;
 }
 
-.burger-dishes{
-    width: 713px;
-    height: 612px;
-    border: 1px solid black;
-    gap: 15px;
+#burger-dishes{
     display: flex;
     flex-direction: column;
+    width: 713px;
+    height: 612px;
+    gap: 15px;
 }
+
+/* --------------------------------------------------------------------------------- */
 
 .pizza-headline {
     width: 100%;
@@ -206,35 +235,20 @@ header {
         height: 91px;
     }
 
-    h2{
-    font-family: "Palanquin";
-    font-size: 40px;
-    font-weight: bold;
-    color: white;
+    h2 {
+        font-family: "Palanquin";
+        font-size: 40px;
+        font-weight: bold;
+        color: white;
     }
 }
-/* --------------------------------------------------------------------------------- */
-#pizza-menu{
+
+#pizza-dishes{
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    gap: 15px;
-}
-
-
-.pizza-menu-content{
-    display: flex;
-    justify-content: center;
-    padding: 30px 0px 50px 119px;
-}
-
-.pizza-dishes{
     width: 713px;
     height: 612px;
-    border: 1px solid black;
     gap: 15px;
-    display: flex;
-    flex-direction: column;
 }
 
 /* --------------------------------------------------------------------------------- */
@@ -250,35 +264,20 @@ header {
         height: 91px;
     }
 
-    h2{
-    font-family: "Palanquin";
-    font-size: 40px;
-    font-weight: bold;
-    color: white;
+    h2 {
+        font-family: "Palanquin";
+        font-size: 40px;
+        font-weight: bold;
+        color: white;
     }
 }
 
-#salad-menu{
+#salad-dishes{
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    gap: 15px;
-}
-
-
-.salad-menu-content{
-    display: flex;
-    justify-content: center;
-    padding: 30px 0px 50px 119px;
-}
-
-.salad-dishes{
     width: 713px;
     height: 612px;
-    border: 1px solid black;
     gap: 15px;
-    display: flex;
-    flex-direction: column;
 }
 
 /* --------------------------------------------------------------------------------- */
