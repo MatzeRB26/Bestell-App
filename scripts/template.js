@@ -24,6 +24,7 @@ function getMenuTemplate(menu) {
 }
 
 // -----------------------------------------------------------------------------------------
+
 function getBasketTemplate(index) {
     return `
         <div class="dish-basket">
@@ -38,6 +39,5 @@ function getBasketTemplate(index) {
 function getBasketContainerTemplate() {
     return `
     <h3>Your Basket</h3>
-    <div class="basket-item"></div>
     `;
 }
