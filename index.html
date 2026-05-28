@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="./styles/fonts.css" />
         <link rel="stylesheet" href="./styles/standart.css" />
         <link rel="stylesheet" href="./styles/basket.css" />
+        <link rel="stylesheet" href="./styles/dialog.css">
         <link rel="stylesheet" href="style.css" />
         <script src="./scripts/template.js"></script>
         <script src="./scripts/db.js"></script>
@@ -70,7 +71,6 @@
                             <div id="pizza-dishes"></div>
                         </div>
                     </section>
-
                     <div class="menu-headline">
                         <div class="headline-content">
                             <img
@@ -86,10 +86,21 @@
                         </div>
                     </section>
                 </section>
-                <aside class="basket">
-                    <div class="basket-content" id="basket-content">
-                        <h3>Your Basket</h3>
-                        <img src="./assets/icons/shopping-cart-icon.png" alt="Shopcart">
+
+                <aside class="basket-container" id="basket-container">
+                    <div id="basket-content">
+                        <div class="basket-text">
+                            <h3>Your Basket</h3>
+                            <p>
+                                Nothing here yet.<br>Go ahead and choose something</br>
+                                delicious!
+                            </p>
+                                <img
+                                class="shopcart"
+                                src="./assets/icons/shopping-cart-icon.png"
+                                alt="Shopcart"
+                            />
+                        </div>
                     </div>
                 </aside>
             </div>
@@ -104,5 +115,21 @@
                 <p>Cookie Preferences</p>
             </div>
         </footer>
+        <dialog id="dialog">
+            <div class="dialog-content">
+                <button class="img-x">
+                    <img
+                src="./assets/icons/close.svg"
+                onclick="closeDialog()"
+                    />
+                </button>
+                    <img
+                class="truck"
+                src="./assets/icons/delivery-truck-icon.png"
+                    />
+                <h3>Order confirmed!</h3>
+                <p>Your food is on the way!</p>
+            </div>
+        </dialog>
     </body>
 </html>

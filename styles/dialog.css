@@ -1,0 +1,50 @@
+#dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 415px;
+    height: 269px;
+    background-color: rgba(54, 53, 52, 1);
+    padding: 26px;
+    border-radius: 30px;
+    
+    .img-x {
+        position: absolute;
+        right: 20px;
+        top: 0px;
+        cursor: pointer;
+        }
+}
+
+#dialog::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.dialog-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 30px;
+
+    .truck {
+        width: 80px;
+        height: 57px;
+    }
+
+    h3 {
+        font-family: "Palanquin";
+        font-size: 42px;
+        font-weight: 700;
+        color: rgba(253, 234, 220, 1);
+    }
+
+    p {
+        font-family: "Palanquin";
+        font-size: 29px;
+        font-weight: 700;
+        color: rgba(253, 234, 220, 1);
+    }
+}

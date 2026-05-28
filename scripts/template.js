@@ -27,17 +27,49 @@ function getMenuTemplate(menu) {
 
 function getBasketTemplate(index) {
     return `
-        <div class="dish-basket">
         <div id="basket-item">
-        <h5>${basket[index].title}</h5>
-        <p>${basket[index].price.toFixed(2).replace(".", ",")}€</p>
+            <div class="top-basket">
+                    <h5>${basket[index].title}</h5>
+                    <button class="trash" onclick="getRemoveFromBasket(${index})"> 🗑️ </button>
+            </div>
+                    
+            <div class="basket-amount">
+                <div class="bottom-basket">
+                    <button class="minus-amount" onclick="removeAmount(${index})"> ➖ </button>
+                    <span class="number">${basket[index].amount}</span>
+                    <button class="plus-amount" onclick="addAmount(${index})"> ➕ </button>
+                </div>
+                    <p>${(basket[index].price * basket[index].amount).toFixed(2).replace(".", ",")}€</p>
+            </div>
         </div>
-        </div>
-    `;
+        `;
 }
 
 function getBasketContainerTemplate() {
     return `
     <h3>Your Basket</h3>
+        <div id="order-content"></div>
+    <table class="pricetotal">
+    <tr>
+        <td>Subtotal</td>
+        <td id="subtotal"></td>
+    </tr>
+    <tr>
+        <td>Delivery fee</td>
+        <td id="deliveryFee"></td>
+    </tr>
+    <tr>
+        <td>
+            <div class="line"></div>
+        </td>
+    </tr>
+    <tr class="totalEnd">
+        <td>Total</td>
+        <td id="total"></td>
+    </tr>
+    </table>
+    <button onclick="openDialog()" class="buynow">Buy now (<span id="buy-total"></span>)</button>
     `;
 }
+
+
