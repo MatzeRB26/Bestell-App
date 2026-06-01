@@ -1,3 +1,5 @@
+// ----------------Menu cards beschreiben um es zu rendern lassen---------------------------------
+
 function getMenuTemplate(menu) {
     return `
     <div class="menu-card">
@@ -23,7 +25,7 @@ function getMenuTemplate(menu) {
     `;
 }
 
-// -----------------------------------------------------------------------------------------
+// ------------------------------------Basket funktionen innerhalb-----------------------------------------------------
 
 function getBasketTemplate(index) {
     return `
@@ -44,6 +46,8 @@ function getBasketTemplate(index) {
         </div>
         `;
 }
+
+// ---------------------------styling basket-------------------------------------
 
 function getBasketContainerTemplate() {
     return `
@@ -68,8 +72,14 @@ function getBasketContainerTemplate() {
         <td id="total"></td>
     </tr>
     </table>
-    <button onclick="openDialog()" class="buynow">Buy now (<span id="buy-total"></span>)</button>
+
+    <button id="buy-button" 
+        class="buynow"
+        onclick="openDialog()" disabled>
+        Buy now (<span id="buy-total"></span>)
+    </button>
     `;
 }
+
 
 
