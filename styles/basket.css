@@ -1,4 +1,4 @@
-aside {
+/* aside {
     display: none;
     position: absolute;
     display: flex;
@@ -6,35 +6,53 @@ aside {
     width: 100%;
     height: 100%;
     top: 0;
-}
+} */
 
 .basket-card {
     background-color: #363534;
     color: white;
     border-radius: 20px;
     padding: 24px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
     max-height: calc(100vh -100px);
 }
 
+.basket-title{
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-family: palaquin;
+}
+
 .order-items-list {
+    max-height: 400px;
+    padding-right: 5px;
     margin: 16px 0;
     margin-top: 16px;
-    overflow-y: auto;
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 12px;
+    overflow-y: auto;
 }
+
+.order-items-list::-webkit-scrollbar-track{
+    background: #353436;
+}
+
+.order-items-list::-webkit-scrollbar-thumb{
+    background: rgba(231, 195, 173, 1);
+    border-radius: 15px;
+}
+
 
 .basket-item {
     display: flex;
     flex-direction: column;
+    gap: 15px;
     background-color: #fdead7;
     color: #363534;
-    gap: 15px;
     border-radius: 15px;
     padding: 15px;
     margin-bottom: 12px;
@@ -49,32 +67,27 @@ aside {
     font-size: 22px;
 }
 
-.items-controls button {
-    background-color: #fdeadc;
-    border: none;
-    border-radius: 4px;
-    padding: 4px 8px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.item-price {
-    font-family: palanquin;
-    font-weight: 700;
-    margin-left: auto;
-    margin-right: 10px;
-    color: #e76d1f;
-    font-size: 18px;
+.item-controls{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .quantity-controls{
     display: flex;
     align-items: center;
     gap: 12px;
-    border: 1.5px solid #e76d1f;
+    border: 1.5px solid #343231;
     border-radius: 20px;
     padding: 2px 10px;
     color: #363534;
+}
+
+.item-price {
+    font-family: palanquin;
+    font-weight: 700;
+    color: #343231;
+    font-size: 18px;
 }
 
 .quantity-controls button{
@@ -86,22 +99,28 @@ aside {
     font-weight: 700;
 }
 
-.basket-summery {
+.basket-summery-box {
     background-color: rgba(0, 0, 0, 0.2);
     margin-top: 15px;
     display: flex;
     flex-direction: column;
     gap: 8px;
+    border-radius: 12px;
+    padding: 15px;
 }
 
 .summery-line {
+    display: flex;
+    margin-bottom: 5px;
+    justify-content: space-between;
     font-family: palanquin;
     color: white;
-    display: flex;
-    justify-content: space-between;
 }
 
 .total-line {
+    border-top: 2px solid;
+    padding-top: 10px;
+    margin-top: 10px;
     font-family: "palanquin";
     font-size: 18px;
     color: rgba(255, 255, 255, 1);
@@ -111,10 +130,10 @@ aside {
     margin-top: 20px;
     background-color: rgba(231, 108, 31, 1);
     color: white;
+    font-size: 32px;
     border: none;
-    border-radius: 25px;
-    padding: 12px;
-    font-size: 16px;
+    border-radius: 60px;
+    padding: 13px;
     font-weight: bold;
     cursor: pointer;
     width: 100%;

@@ -1,3 +1,5 @@
+let basket = [];
+
 function renderDishes(list, category, containerId) {
     const container = document.getElementById(containerId);
     if (!container) return;

@@ -1,3 +1,4 @@
+
 let menuList = [
     {
         imgPath: "./assets/img/veggie-burger.jpg",
@@ -90,3 +91,4 @@ let menuListThree = [
         amount: 0
     },
 ];
+

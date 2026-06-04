@@ -48,3 +48,44 @@
         color: rgba(253, 234, 220, 1);
     }
 }
+
+/* -------------------------------------------------------------------- */
+
+#basket-mobile{
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: #363534;
+    color: white;
+}
+
+#basket-mobile::backdrop{
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.mobile-basket-content{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+#basket-mobile-content{
+    flex: 1;
+    overflow-y: auto;
+}
+
+.close-basket-mobile{
+    align-self: flex-end;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+}

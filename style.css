@@ -1,9 +1,10 @@
 .body-img {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 300px;
     background: radial-gradient(circle, #fcead1 0%, #e76d1f 100%);
     overflow: hidden;
     position: relative;
@@ -11,6 +12,7 @@
 
 .body-img img {
     width: 100%;
+    height: 100%;
     object-fit: cover;
     opacity: 0.85;
 }
@@ -19,32 +21,32 @@
 header {
     width: 100%;
     height: 128px;
+    background-color: rgba(231, 108, 31, 1);
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(231, 108, 31, 1);
+}
 
-    .header-content {
-        width: 100%;
-        max-width: 1440px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 40px;
-    }
+.header-content {
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
 
-    .logo {
-        font-size: 32px;
-        font-weight: 700;
-        color: white;
-        height: 40px;
-        object-fit: contain;
-    }
+.logo {
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    height: 40px;
+    object-fit: contain;
+}
 
-    .nav-logo {
-        height: 24px;
-        cursor: pointer;
-    }
+.nav-logo {
+    height: 24px;
+    cursor: pointer;
 }
 
 .burger-logo {
@@ -52,18 +54,17 @@ header {
     justify-content: center;
     align-items: center;
     height: 100px;
-    margin-top: -50px;
+    margin-top: -60px;
     position: relative;
     z-index: 10;
 
     img {
-        background-color: white;
+        background: white;
         border: 4px solid #e76d1f;
         border-radius: 50%;
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
         padding: 8px;
-        object-fit: contain;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
 }
@@ -124,12 +125,14 @@ header {
 .main-layout{
     display: flex;
     gap: 30px;
-    padding: 40px 20px;
+    padding: 0 20px 100px 20px;
     align-items: flex-start;
 }
 
 .menu-container{
     flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .full-width-orange{
@@ -158,18 +161,20 @@ header {
 } 
 
 .headline-content {
-    display: flex;
     width: 100%;
     max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
     padding: 0 20px;
-    margin-left: 167px;
 }
 
 .headline-text-wrapper{
     flex: 1;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: flex-start;
+    max-width: 712px;
+    margin: 0 auto;
     gap: 20px;
 }
 
@@ -232,11 +237,14 @@ header {
 
 /*  #region Menu cards - template JS */
 .menu-card{
-    width: 100%;
-    max-width: 712px;
     display: flex;
     background-color: #fcead1;
     border-radius: 12px;
+    padding: 16px;
+    width: 100%;
+    max-width: 712px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
     .menu-img img {
@@ -244,32 +252,51 @@ header {
         height: 121px;
         object-fit: cover;
         border-radius: 12px;
-        flex-shrink: 0;
     }
 
-.menu-content {
-    display: flex;
+.menu-info-center {
     flex: 1;
-    align-items: stretch;
-    justify-content: space-between;
-    gap: 16px;
-}
-
-.menu-header {
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
-    padding-left: 8px;
-
-    h6 {
+    gap: 8px;
+    
+    h4 {
+        margin: 0;
         font-size: 20px;
         font-weight: 700;
     }
-
+    
     p {
+        margin: 0;
         font-size: 16px;
-        font-weight: 500;
         line-height: 1.2;
+        color: #666;
     }
+}
+
+.menu-action-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.price-top{
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.menu-button {
+    color: rgba(54, 53, 52, 1);
+    background: rgba(255, 255, 255, 1);
+    border: 1.5px solid #e76d1f;
+    font-size: 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 6px 16px;
+    white-space: nowrap;
 }
 
 .menu-footer {
@@ -284,25 +311,7 @@ header {
         font-size: 24px;
     }
 
-    .menu-button {
-        width: 115px;
-        height: 30px;
-        color: rgba(54, 53, 52, 1);
-        background-color: rgba(255, 255, 255, 1);
-        font-size: 16px;
-        border-radius: 20px;
-        font-weight: 600;
-        cursor: pointer;
-    }
 }
-
-/* #burger-menu,
-#pizza-menu,
-#salad-menu {
-    display: flex;
-    justify-content: center;
-    z-index: 9;
-} */
 
 .dishes-content {
     display: flex;
@@ -347,26 +356,23 @@ header {
 footer {
     width: 100%;
     height: 128px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 55px 0;
     background-color: rgba(231, 108, 31, 1);
 
     .footer-content {
-        width: 100%;
-        width: 1440px;
         display: flex;
         align-items: center;
-        padding: 32px 414px;
+        justify-content: center;
         font-family: "Palanquin";
         font-size: 18px;
         color: white;
-        gap: 72px;
+        gap: 40px;
     }
 }
 
 .copy-text {
     display: flex;
     align-items: center;
+    gap: 8px;
 }
 /* #endregion */
