@@ -5,117 +5,115 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="fov icon" href="./assets/icons/fov-icon.svg" type="" />
 
-        <link rel="stylesheet" href="./styles/fonts.css"/>
-        <link rel="stylesheet" href="./styles/standart.css"/>
-        <link rel="stylesheet" href="./styles/responsive.css"/>
-        <link rel="stylesheet" href="./styles/basket.css"/>
-        <link rel="stylesheet" href="./styles/dialog.css"/>
-        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="./styles/fonts.css" />
+        <link rel="stylesheet" href="./styles/standart.css" />
+        <link rel="stylesheet" href="./styles/basket.css" />
+        <link rel="stylesheet" href="./styles/dialog.css" />
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="./styles/responsive.css" />
 
-        <script src="./scripts/template.js"></script>
-        <script src="./scripts/db.js"></script>
+        <script src="./scripts/template.js" defer></script>
+        <script src="./scripts/db.js" defer></script>
         <script src="./script.js" defer></script>
-        <title>Hunger auf 🍔🍕oder🥗</title>
+        <title>Bestell-App</title>
     </head>
     <body onload="init()">
-        <div class="body-img">
-            <img src="./assets/img/header-image.jpg" alt="bg-img" />
-        </div>
         <header>
             <div class="header-content">
                 <img class="logo" src="./assets/icons/Logo 02.svg" alt="Logo" />
                 <img class="nav-logo" src="./assets/icons/navbar.svg" />
             </div>
         </header>
+
+        <div class="body-img">
+            <img src="./assets/img/header-image.jpg" alt="bg-img" />
+        </div>
+
         <main>
-            <div class="burger-logo">
-                <img src="./assets/icons/main-icon.png" alt="bg-logo" />
-            </div>
-            <div class="top-text">
-                <div class="bh-and-rating">
-                    <h1><span class="bg">Burger</span>House</h1>
-                    <img
-                        src="./assets/icons/rating-icon.png"
-                        alt="rating-img"
-                    />
+            <!-- 1. Restaurant Info Bereich (zentriert) -->
+            <section class="restaurant-info">
+                <div class="burger-logo">
+                    <img src="./assets/icons/main-icon.png" alt="bg-logo" />
                 </div>
-                <p>
-                    The best of Burgers, Pizza and Greens, all in one great
-                    place.
-                </p>
-            </div>
-
-            <div class="layout-container">
-                <div class="menu-headline">
-                <section class="menu-container">
-                        <div class="headline-content">
-                            <img
-                                src="./assets/icons/burger-icon.png"
-                                alt="burger-icon"
-                            />
-                            <h2>Burger & Sandwiches</h2>
-                        </div>
+                <div class="top-text content-width">
+                    <div class="bh-and-rating">
+                        <h1><span class="bg">Burger</span>House</h1>
+                        <img
+                            src="./assets/icons/rating-icon.png"
+                            alt="rating-img"
+                        />
                     </div>
-                    <section id="burger-menu">
-                        <div class="dishes-content">
-                            <div id="burger-dishes"></div>
-                        </div>
-                    </section>
-                </section>
-
-                <div class="menu-headline">
-                    <section class="menu-container">
-                        <div class="headline-content">
-                            <img
-                                src="./assets/icons/pizza-icon.png"
-                                alt="pizza-icon"
-                            />
-                            <h2>Pizza<span> (30cm)</span></h2>
-                        </div>
+                    <p>
+                        The best of Burgers, Pizza and Greens, all in one great
+                        place.
+                    </p>
                 </div>
-                    <section id="pizza-menu">
-                        <div class="dishes-content">
-                            <div id="pizza-dishes"></div>
-                        </div>
-                    </section>
-                </section>
+            </section>
 
-                <div class="menu-headline">
-                    <section class="menu-container">
-                        <div class="headline-content">
-                            <img
-                                src="./assets/icons/salad-icon.png"
-                                alt="salad-icon"
-                            />
-                            <h2>Salad</h2>
-                        </div>
-                </div>
-                    <section id="salad-menu">
-                        <div class="dishes-content">
-                            <div id="salad-dishes"></div>
-                        </div>
-                    </section>
-                </section>
-                
-                <aside>
-                    <div class="basket-container" id="basket-container">
-                        <div id="basket-content">
-                            <div class="basket-text">
-                                <h3>Your Basket</h3>
-                                <p>
-                                    Nothing here yet.<br>Go ahead and choose something</br>delicious!
-                                </p>
-                                <img
-                                class="shopcart"
-                                src="./assets/icons/shopping-cart-icon.png"
-                                alt="Shopcart"
-                                />
+            <!-- 2. Der Hauptinhalt: Menü links, Basket rechts -->
+            <div class="main-layout content-width">
+                <!-- Linke Seite: Alle Menü-Kategorien -->
+                <div class="menu-container">
+                    <!-- Burger Sektion -->
+                    <div class="category-wrapper">
+                        <div class="full-width-orange">
+                            <div class="headline-content">
+                                <div class="headline-text-wrapper">
+                                    <img
+                                        src="./assets/icons/burger-icon.png"
+                                        alt="burger-icon"
+                                    />
+                                    <h2>Burger & Sandwiches</h2>
+                                </div>
                             </div>
+                        </div>
+                        <div id="burger-dishes" class="dishes-list"></div>
+                    </div>
+
+                    <!-- Pizza Sektion -->
+                    <div class="category-wrapper">
+                        <div class="full-width-orange">
+                            <div class="headline-content">
+                                <div class="headline-text-wrapper">
+                                    <img
+                                        src="./assets/icons/pizza-icon.png"
+                                        alt="pizza-icon"
+                                    />
+                                    <h2>Pizza (30cm)</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="pizza-dishes" class="dishes-list"></div>
+                    </div>
+
+                    <!-- Salad Sektion -->
+                    <div class="category-wrapper">
+                        <div class="full-width-orange">
+                            <div class="headline-content">
+                                <div class="headline-text-wrapper">
+                                    <img
+                                        src="./assets/icons/salad-icon.png"
+                                        alt="salad-icon"
+                                    />
+                                    <h2>Salad</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="salad-dishes" class="dishes-list"></div>
+                    </div>
+                </div>
+
+                <!-- Rechte Seite: Der Sticky Warenkorb -->
+                <aside class="basket-sidebar">
+                    <div id="basket-container" class="basket-card">
+                        <div id="basket-content">
+                            <!-- Wird per JS befüllt -->
                         </div>
                     </div>
                 </aside>
             </div>
         </main>
+
         <footer>
             <div class="footer-content">
                 <div class="copy-text">
@@ -126,17 +124,16 @@
                 <p>Cookie Preferences</p>
             </div>
         </footer>
+
         <dialog id="dialog" onclick="closeDialog()">
             <div class="dialog-content">
                 <button class="img-x">
-                    <img
-                    src="./assets/icons/close.svg"
-                    />
+                    <img src="./assets/icons/close.svg" />
                 </button>
-                    <img
-                class="truck"
-                src="./assets/icons/delivery-truck-icon.png"
-                    />
+                <img
+                    class="truck"
+                    src="./assets/icons/delivery-truck-icon.png"
+                />
                 <h3>Order confirmed!</h3>
                 <p>Your food is on the way!</p>
             </div>
@@ -144,23 +141,39 @@
 
         <nav id="mobile-navbar">
             <div class="mobile-content">
-                    <img src="assets/icons/home-icon-white.png">
-                    <img src="assets/icons/person-icon-white.png">
-                    <img src="assets/icons/menu-icon-white.png">
-                <div class="m-basket-icon">
-                <img class="cart-icon"
-                    src="assets/icons/shopping-cart-icon-white.png"
-                    alt="basket-icon"
+                <div class="nav-item">
+                    <img src="assets/icons/home-icon-white.png" alt="Home" />
+                </div>
+                <div class="nav-item">
+                    <img
+                        src="assets/icons/person-icon-white.png"
+                        alt="Profil"
+                    />
+                </div>
+                <div class="nav-item">
+                    <img src="assets/icons/menu-icon-white.png" alt="Menü" />
+                </div>
+
+                <div
+                    class="m-basket-icon"
                     onclick="openBasketMobile()"
-                />
-                <p id="mobile-cart">0</p>
+                    title="Warenkorb öffnen"
+                >
+                    <img
+                        class="cart-icon"
+                        src="./assets/icons/shopping-cart-icon.png"
+                        alt="Einkaufswagen"
+                    />
+                    <p id="mobile-cart">0</p>
                 </div>
             </div>
         </nav>
-
         <dialog id="basket-mobile">
             <div class="mobile-basket-content">
-                <div id="basket-mobile-content" onclick="closeBasketMobile()"></div>
+                <div
+                    id="basket-mobile-content"
+                    onclick="closeBasketMobile()"
+                ></div>
             </div>
         </dialog>
     </body>

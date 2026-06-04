@@ -90,5 +90,3 @@ let menuListThree = [
         amount: 0
     },
 ];
-
-let basket = [];

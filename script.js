@@ -1,8 +1,18 @@
+function renderDishes(list, category, containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML = "";
+    for (let i = 0; i < list.length; i++) {
+        container.innerHTML += getMenuTemplate(list[i], category, i);
+    }
+}
+
 function init() {
     loadBasket();
-    renderMenu();
-    renderMenuTwo();
-    renderMenuThree();
+    renderDishes(menuList, "burger", "burger-dishes");
+    renderDishes(menuListTwo, "pizza", "pizza-dishes");
+    renderDishes(menuListThree, "salad", "salad-dishes");
     renderBasket();
 }
 
@@ -17,68 +27,77 @@ function loadBasket() {
     }
 }
 
-// -----------------------Menus rendern-------------------------------------------------
-function renderMenu() {
-    const burgerRef = document.getElementById("burger-dishes");
-    burgerRef.innerHTML = "";
-    for (let index = 0; index < menuList.length; index++) {
-        burgerRef.innerHTML += getMenuTemplate(menuList[index]);
-    }
-}
-renderMenu();
-
-function renderMenuTwo() {
-    const pizzaRef = document.getElementById("pizza-dishes");
-    pizzaRef.innerHTML = "";
-    for (let index = 0; index < menuListTwo.length; index++) {
-        pizzaRef.innerHTML += getMenuTemplate(menuListTwo[index]);
-    }
-}
-renderMenuTwo();
-
-function renderMenuThree() {
-    const saladRef = document.getElementById("salad-dishes");
-    saladRef.innerHTML = "";
-    for (let index = 0; index < menuListThree.length; index++) {
-        saladRef.innerHTML += getMenuTemplate(menuListThree[index]);
-    }
-}
-renderMenuThree();
-
-// --------------------------Basket--rendern------------------------
+// --------------------------Basket-rendern------------------------
 function renderBasket() {
-    let positionToFixed = document.getElementById("order-content");
-    let positionFix = 0;
-    if (positionToFixed) {
-        positionFix = positionToFixed.scrollTop;
+    const content = document.getElementById("basket-content");
+    if (basket.length === 0) {
+        content.innerHTML = getEmptyBasketTemplate();
+    } else {
+        content.innerHTML = getBasketContainerTemplate();
+        renderBasketItems();
+        updateBasketTotals();
     }
-
-    const basketRef = document.getElementById("basket-content");
-    basketRef.innerHTML = getBasketContainerTemplate();
-
-    const basketItemRef = document.getElementById("order-content");
-    for (let index = 0; index < basket.length; index++) {
-        basketItemRef.innerHTML += getBasketTemplate(index);
-    }
-    basketItemRef.scrollTop = positionFix;
-    renderBasketSummary();
-    updateMobileBasket();
+    updateBasketContent("basket-content");
+    updateBasketContent("basket-mobile-content");
+    updateMobileBadge();
 }
 
-// -----------------------Zum Basket Dishes hinzufügen------------------
-function addToBasket(menu) {
-    const sameDish = basket.find((item) => item.title === menu.title);
-    if (sameDish) {
-        sameDish.amount++;
+function updateBasketContent(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    if (basket.length === 0) {
+        container.innerHTML = getEmptyBasketTemplate();
+    } else {
+        container.innerHTML = getBasketContainerTemplate();
+        renderItemsInContainer(containerId);
+        updateBasketTotals();
+    }
+}
+
+function renderItemsInContainer(containerId) {
+    const list = document
+        .getElementById(containerId)
+        .querySelector(".order-items-list");
+    if (!list) return;
+    list.innerHTML = "";
+    for (let i = 0; i < basket.length; i++) {
+        list.innerHTML += getBasketItemTemplate(i);
+    }
+}
+
+function renderBasketItems() {
+    const list = document.getElementById("order-items-list");
+    list.innerHTML = "";
+    for (let i = 0; i < basket.length; i++) {
+        list.innerHTML += getBasketItemTemplate(i);
+    }
+}
+
+function formatPrice(price) {
+    return price.toFixed(2).replace(".", ",") + "€";
+}
+
+// -----------------------Zum Basket Gerichte hinzufügen------------------
+function addToBasket(category, index) {
+    const dish = getDish(category, index);
+    const itemInBasket = basket.find((item) => item.title === dish.title);
+    if (itemInBasket) {
+        itemInBasket.amount++;
     } else {
         basket.push({
-            title: menu.title,
-            price: menu.price,
+            title: dish.title,
+            price: dish.price,
             amount: 1,
         });
     }
     saveBasket();
     renderBasket();
+}
+
+function getDish(category, index){
+    if (category === `burger`) return menuList[index];
+    if (category === `pizza`) return menuListTwo[index];
+    if (category === `salad`) return menuListThree[index];
 }
 
 function addAmount(index) {
@@ -97,75 +116,70 @@ function removeAmount(index) {
     renderBasket();
 }
 
-function totalBasketPrice() {
-    let total = 0;
-    for (let index = 0; index < basket.length; index++) {
-        total += basket[index].price * basket[index].amount;
-    }
-    return total;
-}
-
-// --------------------Preise im Basket berechnen und anzeigen--------------------------------
-function renderBasketSummary() {
-    const subtotal = totalBasketPrice();
-    const deliveryFee = basket.length > 0 ? 4.99 : 0;
-    const total = subtotal + deliveryFee;
-    document.getElementById("subtotal").innerHTML =
-        subtotal.toFixed(2).replace(".", ",") + "€";
-    document.getElementById("deliveryFee").innerHTML =
-        deliveryFee.toFixed(2).replace(".", ",") + "€";
-    document.getElementById("total").innerHTML =
-        total.toFixed(2).replace(".", ",") + "€";
-    document.getElementById("buy-total").innerHTML =
-        total.toFixed(2).replace(".", ",") + "€";
-
-    const btn = document.getElementById("buy-button");
-    if (basket.length === 0) {
-        btn.disabled = true;
-    } else {
-        btn.disabled = false;
-    }
-}
-
-// -----------------------Dishes aus dem basket entfernen--------------------------------------
-function getRemoveFromBasket(index) {
+function deleteFromBasket(index) {
     basket.splice(index, 1);
     saveBasket();
     renderBasket();
 }
+// --------------------Preise im Basket berechnen und anzeigen--------------------------------
+function calculateSubTotal() {
+    let subtotal = 0;
+    for (let i = 0; i < basket.length; i++) {
+        subtotal += basket[i].price * basket[i].amount;
+    }
+    return subtotal;
+}
 
-// ----------------------PopUpWindow öffnen wenn die bestellung weg soll-----------------------
-function openDialog(index) {
+function updateBasketTotals() {
+    const subtotal = calculateSubTotal();
+    const delivery = 4.99;
+    const total = subtotal + delivery;
+
+    document.getElementById("subtotal").innerHTML = formatPrice(subtotal);
+
+    document.getElementById("delivery").innerHTML = formatPrice(delivery);
+
+    document.getElementById("total").innerHTML = formatPrice(total);
+
+    document.getElementById("buy-total").innerHTML = formatPrice(total);
+}
+
+// -------------PopUpWindow öffnen wenn die bestellung weg soll-----------------------
+function openDialog() {
+    const dialog = document.getElementById("dialog");
+    basket = [];
     document.body.style.overflow = "hidden";
     dialog.showModal();
-    basket = [];
     saveBasket();
     renderBasket();
 }
-openBasketMobile();
 
 // ----------------------PopUpWindow schließen---------------------------------
-function closeDialog(index) {
-    basket.splice(index, 1);
+function closeDialog() {
+    const dialog = document.getElementById("dialog");
     document.body.style.overflow = "auto";
     dialog.close();
 }
-closeBasketMobile();
 
-function openBasketMobile(){
-    document.getElementById("basket-container")
-    .classList.add("basket-mobile-open");
+function openBasketMobile() {
+    const dialog = document.getElementById("basket-mobile");
+    dialog.showModal();
+    document.body.style.overflow = "hidden";
 }
 
-function closeBasketMobile(){
-    document.getElementById("basket-container")
-    .classList.add("basket-mobile-close");
+function closeBasketMobile() {
+    const dialog = document.getElementById("basket-mobile");
+    dialog.close();
+    document.body.style.overflow = "auto";
 }
 
-function updateMobileBasket(){
-    let totalAmount = 0;
-    for (let index = 0; index < basket.length; index++) {
-        totalAmount += basket[index].amount;
+function updateMobileBadge() {
+    let count = 0;
+    for (let i = 0; i < basket.length; i++) {
+        count += basket[i].amount;
     }
-    document.getElementById("mobile-cart").innerHTML = totalAmount;
+    const mobileCart = document.getElementById("mobile-cart");
+    if (mobileCart) {
+        mobileCart.innerHTML = count;
+    }
 }

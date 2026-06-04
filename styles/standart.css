@@ -13,3 +13,20 @@
     border: initial;
 }
 
+body{
+    background-color: #faf6f0;
+    color: #363534;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+body.no-scroll, html.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+}
+
+main{
+    flex: 1;
+}
