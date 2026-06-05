@@ -24,7 +24,7 @@ function getMenuTemplate(dish, category, index) {
 `;
 }
 
-// ------------------------basket Container----------------------------------
+// ------------------------basket Calculator----------------------------------
 
 function getBasketContainerTemplate() {
     return `

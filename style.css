@@ -1,3 +1,7 @@
+#basket-mobile {
+    display: none;
+}
+
 .body-img {
     width: 100%;
     height: 300px;
@@ -5,12 +9,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(circle, #fcead1 0%, #e76d1f 100%);
-    overflow: hidden;
     position: relative;
 }
 
 .body-img img {
+    max-width: 1440px;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -18,6 +21,136 @@
 }
 
 /* #region Header-content */
+.logo {
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    height: 40px;
+    object-fit: contain;
+}
+
+.nav-logo {
+    height: 24px;
+    cursor: pointer;
+}
+
+.restaurant-info .top-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 70px;
+    text-align: center;
+    gap: 8px;
+
+    .bh-and-rating {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-bottom: 8px;
+
+        .bg {
+            color: rgba(231, 108, 31, 1);
+        }
+
+        h1 {
+            font-size: 42px;
+            font-family: "Palanquin Dark";
+            font-weight: 700;
+            color: rgba(54, 53, 52, 1);
+        }
+
+        img {
+            height: 28px;
+            object-fit: contain;
+        }
+    }
+    p {
+        font-size: 22px;
+        font-family: "Palanquin";
+        color: rgba(54, 53, 52, 1);
+        font-weight: 700;
+        max-width: 600px;
+    }
+}
+
+.burger-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    margin-top: -60px;
+    position: relative;
+    z-index: 10;
+
+    img {
+        background: white;
+        border: 4px solid #e76d1f;
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        padding: 8px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+}
+/* #endregion  */
+
+/* #region Hilfeklasse für die zentrierung des Inhalts */
+.content-width {
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.main-layout {
+    display: flex;
+    gap: 30px;
+    padding: 0 20px 100px 20px;
+    align-items: flex-start;
+}
+
+.menu-container {
+    flex: 1;
+}
+
+.category-wrapper {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+    margin-top: 60px;
+}
+
+header,
+footer,
+.full-width-orange {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    background-color: #e76d1f;
+    align-items: center;
+    z-index: 10;
+    padding: 0;
+}
+
+header::before,
+footer::before,
+.full-width-orange::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -100vw;
+    right: -100vw;
+    background-color: #e76d1f;
+    z-index: -1;
+}
+
 header {
     width: 100%;
     height: 128px;
@@ -36,139 +169,15 @@ header {
     padding: 0 20px;
 }
 
-.logo {
-    font-size: 32px;
-    font-weight: 700;
-    color: white;
-    height: 40px;
-    object-fit: contain;
-}
-
-.nav-logo {
-    height: 24px;
-    cursor: pointer;
-}
-
-.burger-logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    margin-top: -60px;
-    position: relative;
-    z-index: 10;
-
-    img {
-        background: white;
-        border: 4px solid #e76d1f;
-        border-radius: 50%;
-        width: 120px;
-        height: 120px;
-        padding: 8px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
-}
-
-.top-text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 16px;
-    margin-bottom: 32px;
-    text-align: center;
-    gap: 8px;
-    padding: 0 20px;
-
-    .bh-and-rating {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 16px;
-        flex-wrap: wrap;
-
-        .bg {
-            color: rgba(231, 108, 31, 1);
-        }
-
-        h1 {
-            font-size: 42px;
-            font-family: "Palanquin Dark";
-            font-weight: 700;
-            color: rgba(54, 53, 52, 1);
-        }
-
-        img {
-            height: 28px;
-            object-fit: contain;
-        }
-    }
-
-    p {
-        font-size: 18px;
-        font-family: "Palanquin";
-        color: rgba(54, 53, 52, 1);
-        font-weight: bold;
-        max-width: 600px;
-        line-height: 1.5;
-    }
-}
-/* #endregion  */
-
-/* #region Hilfeklasse für die zentrierung des Inhalts */
-.content-width{
-    max-width: 1440px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-.main-layout{
-    display: flex;
-    gap: 30px;
-    padding: 0 20px 100px 20px;
-    align-items: flex-start;
-}
-
-.menu-container{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.full-width-orange{
-    height: 60px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    background-color: #e76d1f;
-    align-items: center;
-    margin-bottom: 20px;
-    margin-top: 40px;
-    z-index: 10;
-    padding: 0;
-}
-
-.full-width-orange::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: -100vw;
-    right: -100vw;
-    background-color: #e76d1f;
-    z-index: -1;
-} 
-
 .headline-content {
     width: 100%;
     max-width: 1440px;
-    margin: 0 auto;
     display: flex;
+    margin: 0 auto;
     padding: 0 20px;
 }
 
-.headline-text-wrapper{
+.headline-text-wrapper {
     flex: 1;
     display: flex;
     align-items: center;
@@ -178,81 +187,50 @@ header {
     gap: 20px;
 }
 
-.headline-text-wrapper img{
+.headline-text-wrapper img {
     width: 88px;
-    height: 91px;
-    margin-top: 20px;
+    height: auto;
+    margin-top: -45px;
     position: absolute;
-    bottom: 0;
-    left: 10%;
-    transform: translateX(-100%);
-    display: block;
-    z-index: 5;
-    margin-left: 20px;
+    z-index: 20;
+    margin-left: 26px;
 }
 
-.headline-text-wrapper h2{
+.headline-text-wrapper h2 {
     color: white;
-    margin: 0;
     font-size: 40px;
     font-family: "palanquin";
+    margin-left: 150px;
     font-weight: 700;
-    line-height: 1.1;
-    z-index: 5;
-    margin: 0;
-    white-space: nowrap;
-    margin-right: 40px;
 }
 
-.dishes-list{
+.dishes-list {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family:"palanquin";
-    gap: 20px;
+    font-family: "palanquin";
     margin: 0 auto;
-}
-
-.basket-sidebar{
-    width: 360px;
-    position: sticky;
-    margin-top: 40px;
-    z-index: 100;
-}
-
-.basket-card{
-    background-color: rgba(54, 53, 52, 1);
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    max-height: 70vw;
-    display: flex;
-    flex-direction: column;
-    padding: 59px 31px;
-}
-
-#basket-content{
-    overflow-y: auto;
+    top: 10px;
 }
 /* #endregion */
 
 /*  #region Menu cards - template JS */
-.menu-card{
+.menu-card {
     display: flex;
     background-color: #fcead1;
     border-radius: 12px;
     padding: 16px;
     width: 100%;
     max-width: 712px;
-    margin-bottom: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
-    .menu-img img {
-        width: 140px;
-        height: 121px;
-        object-fit: cover;
-        border-radius: 12px;
-    }
+.menu-img img {
+    width: 140px;
+    height: 121px;
+    object-fit: cover;
+    border-radius: 12px;
+}
 
 .menu-info-center {
     flex: 1;
@@ -260,13 +238,13 @@ header {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    
+
     h4 {
         margin: 0;
         font-size: 20px;
         font-weight: 700;
     }
-    
+
     p {
         margin: 0;
         font-size: 16px;
@@ -275,14 +253,14 @@ header {
     }
 }
 
-.menu-action-right{
+.menu-action-right {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
 }
 
-.price-top{
+.price-top {
     font-size: 18px;
     font-weight: 700;
 }
@@ -298,61 +276,21 @@ header {
     padding: 6px 16px;
     white-space: nowrap;
 }
-
-.menu-footer {
-    display: flex;
-    flex-direction: column;
-    row-gap: 35px;
-
-    b {
-        display: flex;
-        justify-content: flex-end;
-        font-weight: 600;
-        font-size: 24px;
-    }
-
-}
-
-.dishes-content {
-    display: flex;
-    width: 100%;
-    max-width: 1440px;
-    padding: 30px 0px 50px 119px;
-}
 /* #endregion */
 
-/* #region Burger */
-#burger-dishes {
+/* #region Dishes */
+#burger-dishes,
+#pizza-dishes,
+#salad-dishes {
     display: flex;
     flex-direction: column;
-    width: 713px;
-    height: 612px;
+    width: 100%;
+    height: auto;
     gap: 15px;
 }
 /* #endregion  */
 
-/* #region Pizza */
-#pizza-dishes {
-    display: flex;
-    flex-direction: column;
-    width: 713px;
-    height: 612px;
-    gap: 15px;
-}
-/* #endregion */
-
-/* #region Salad  */
-#salad-dishes {
-    display: flex;
-    flex-direction: column;
-    width: 713px;
-    height: 612px;
-    gap: 15px;
-}
-/* #endregion */
-
 /* #region Footer */
-
 footer {
     width: 100%;
     height: 128px;
@@ -374,5 +312,11 @@ footer {
     display: flex;
     align-items: center;
     gap: 8px;
+}
+/* #endregion */
+
+/* #region mobile-navbar */
+#mobile-navbar {
+    display: none;
 }
 /* #endregion */

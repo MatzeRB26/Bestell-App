@@ -57,9 +57,7 @@ function updateBasketContent(containerId) {
 }
 
 function renderItemsInContainer(containerId) {
-    const list = document
-        .getElementById(containerId)
-        .querySelector(".order-items-list");
+    const list = document.getElementById(containerId).querySelector(".order-items-list");
     if (!list) return;
     list.innerHTML = "";
     for (let i = 0; i < basket.length; i++) {
@@ -164,14 +162,14 @@ function closeDialog() {
 }
 
 function openBasketMobile() {
-    const dialog = document.getElementById("basket-mobile");
-    dialog.showModal();
+    const basketMobile = document.getElementById("basket-mobile");
+    basketMobile.style.display = 'flex';
     document.body.style.overflow = "hidden";
 }
 
 function closeBasketMobile() {
-    const dialog = document.getElementById("basket-mobile");
-    dialog.close();
+    const basketMobile = document.getElementById("basket-mobile");
+    basketMobile.style.display = 'none';
     document.body.style.overflow = "auto";
 }
 
