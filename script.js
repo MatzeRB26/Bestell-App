@@ -135,13 +135,13 @@ function updateBasketTotals() {
     const delivery = 4.99;
     const total = subtotal + delivery;
 
-    document.getElementById("subtotal").innerHTML = formatPrice(subtotal);
-
-    document.getElementById("delivery").innerHTML = formatPrice(delivery);
-
-    document.getElementById("total").innerHTML = formatPrice(total);
-
-    document.getElementById("buy-total").innerHTML = formatPrice(total);
+    document.querySelectorAll("[id='subtotal']").forEach(el => el.innerHTML = formatPrice(subtotal));
+    
+    document.querySelectorAll("[id='delivery']").forEach(el => el.innerHTML = formatPrice(delivery));
+    
+    document.querySelectorAll("[id='total']").forEach(el => el.innerHTML = formatPrice(total));
+    
+    document.querySelectorAll("[id='buy-total']").forEach(el => el.innerHTML = formatPrice(total));
 }
 
 // -------------PopUpWindow öffnen wenn die bestellung weg soll-----------------------
@@ -160,7 +160,7 @@ function closeDialog() {
     document.body.style.overflow = "auto";
     dialog.close();
 }
-
+// --------------------------------------------------------------
 function openBasketMobile() {
     const basketMobile = document.getElementById("basket-mobile");
     basketMobile.style.display = 'flex';
@@ -171,6 +171,15 @@ function closeBasketMobile() {
     const basketMobile = document.getElementById("basket-mobile");
     basketMobile.style.display = 'none';
     document.body.style.overflow = "auto";
+}
+
+function toggleBasketMobile(){
+    const dialog = document.getElementById("basket-mobile");
+    if (dialog.style.display === "flex"){
+        closeBasketMobile(); 
+    } else {
+        openBasketMobile();
+    }
 }
 
 function updateMobileBadge() {

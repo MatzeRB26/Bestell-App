@@ -7,7 +7,7 @@
 }
 
 #basket-content{
-    overflow-y: auto;
+    /* overflow-y: auto; */
 }
 
 .close-mobile{
@@ -15,10 +15,10 @@
 }
 
 .basket-card {
-    background-color: #363534;
+    background-color: #363634;
     color: white;
     border-radius: 20px;
-    padding: 24px;
+    padding: 32px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -29,10 +29,8 @@
     display: flex;
     text-align: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 32px;
     margin-bottom: 20px;
-    font-family: palaquin;
-    font-size: 24px;
 }
 
 .order-items-list {
@@ -59,12 +57,11 @@
 .basket-item {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     background-color: #fdead7;
     color: #363534;
     border-radius: 15px;
-    padding: 15px;
-    margin-bottom: 12px;
+    padding: 10px;
 }
 
 .item-info {

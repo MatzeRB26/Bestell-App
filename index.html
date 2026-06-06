@@ -56,15 +56,19 @@
                 <div class="menu-container">
                     <!-- Burger Sektion -->
                     <div class="category-wrapper">
-
                         <div class="full-width-orange">
                             <div class="headline-content">
                                 <div class="headline-text-wrapper">
                                     <img
-                                        src="./assets/icons/burger-icon.png"
+                                        src="assets/icons/Chanese 1.svg"
                                         alt="burger-icon"
                                     />
-                                    <h2>Burger & Sandwiches</h2>
+                                    <h2>
+                                        Burger
+                                        <span class="text-sw"
+                                            >& Sandwiches</span
+                                        >
+                                    </h2>
                                 </div>
                             </div>
                         </div>
@@ -74,15 +78,16 @@
 
                     <!-- Pizza Sektion -->
                     <div class="category-wrapper">
-                        
                         <div class="full-width-orange">
                             <div class="headline-content">
                                 <div class="headline-text-wrapper">
                                     <img
-                                        src="./assets/icons/pizza-icon.png"
+                                        src="assets/icons/Pizza 1.svg"
                                         alt="pizza-icon"
                                     />
-                                    <h2>Pizza (30cm)</h2>
+                                    <h2>
+                                        Pizza <span class="p-maß">(30cm)</span>
+                                    </h2>
                                 </div>
                             </div>
                         </div>
@@ -92,12 +97,11 @@
 
                     <!-- Salad Sektion -->
                     <div class="category-wrapper">
-                        
                         <div class="full-width-orange">
                             <div class="headline-content">
                                 <div class="headline-text-wrapper">
                                     <img
-                                        src="./assets/icons/salad-icon.png"
+                                        src="assets/icons/Salad 1.svg"
                                         alt="salad-icon"
                                     />
                                     <h2>Salad</h2>
@@ -122,12 +126,9 @@
 
         <footer>
             <div class="footer-content">
-                <div class="copy-text">
-                    <img src="./assets/icons/copyright.svg" alt="copyright" />
-                    <p>2025 BurgerHouse</p>
-                </div>
-                <p>Imprint</p>
-                <p>Cookie Preferences</p>
+                <span>&copy; 2025 BurgerHouse</span>
+                <a href="#">Imprint</a>
+                <a href="#">Cookie Preferences</a>
             </div>
         </footer>
 
@@ -160,10 +161,10 @@
                     <img src="assets/icons/menu-icon-white.png" alt="Menü" />
                 </div>
 
-                <divclass="m-basket-icon" 
-                onclick="openBasketMobile()"
-                title="Warenkorb öffnen"
-                >
+                <div
+                    class="m-basket-icon"
+                    onclick="toggleBasketMobile()"
+                    title="Warenkorb öffnen">
                     <img
                         class="cart-icon"
                         src="assets/icons/shopping-cart-icon-white.png"
@@ -176,8 +177,7 @@
         <dialog id="basket-mobile">
             <div class="mobile-basket-content">
                 <div
-                    id="basket-mobile-content"
-                    onclick="closeBasketMobile()">
+                    id="basket-mobile-content">
                 </div>
             </div>
         </dialog>

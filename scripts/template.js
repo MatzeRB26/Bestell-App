@@ -54,7 +54,7 @@ function getBasketItemTemplate(index) {
     return ` 
     <div class="basket-item">
         <div class="item-info"> 
-        <b>${item.amount}x ${item.title}</b>
+        <b>${item.title}</b>
             <button class="trash-btn" onclick="deleteFromBasket(${index})">🗑️</button>
         </div>
     <div class="item-controls">
